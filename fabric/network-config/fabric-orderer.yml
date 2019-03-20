@@ -1,0 +1,169 @@
+version: '3'
+
+networks:
+  ctso:
+    external:
+      name: ctso
+
+services:
+  orderer0:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE1} 
+    hostname: orderer0.citysurvey.gov
+    image: hyperledger/fabric-orderer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - orderer0.citysurvey.gov
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer0/msp
+      # Enable TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer0/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer0/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer0/tls/ca.crt]
+      # Common parameters
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFAK_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    volumes:
+      - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/msp:/etc/hyperledger/orderer0/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/tls:/etc/hyperledger/orderer0/tls
+
+  orderer1:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE2} 
+    hostname: orderer1.citysurvey.gov
+    image: hyperledger/fabric-orderer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - orderer1.citysurvey.gov
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer1/msp
+      # Enable TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer1/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer1/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer1/tls/ca.crt]
+      # Common parameters
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFAK_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    volumes:
+      - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/msp:/etc/hyperledger/orderer1/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/tls:/etc/hyperledger/orderer1/tls
+
+  orderer2:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE3} 
+    hostname: orderer2.citysurvey.gov
+    image: hyperledger/fabric-orderer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - orderer2.citysurvey.gov
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer2/msp
+      # Enable TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer2/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer2/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer2/tls/ca.crt]
+      # Common parameters
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFAK_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    volumes:
+      - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/msp:/etc/hyperledger/orderer2/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/tls:/etc/hyperledger/orderer2/tls
+
+  orderer3:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE4} 
+    hostname: orderer3.citysurvey.gov
+    image: hyperledger/fabric-orderer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - orderer3.citysurvey.gov
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer3/msp
+      # Enable TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer3/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer3/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer3/tls/ca.crt]
+      # Common parameters
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+      - ORDERER_KAFAK_RETRY_SHORTTOTAL=30s
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    volumes:
+      - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/msp:/etc/hyperledger/orderer3/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/tls:/etc/hyperledger/orderer3/tls
+
+    
