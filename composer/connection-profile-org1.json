@@ -1,0 +1,235 @@
+{
+    "name": "ctso",
+    "x-type": "hlfv1",
+    "x-commitTimeout": 300,
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300",
+                    "eventHub": "300",
+                    "eventReg": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "ctsochan": {
+            "orderers": [
+                "orderer0.citysurvey.gov",
+                "orderer1.citysurvey.gov",
+                "orderer2.citysurvey.gov",
+                "orderer3.citysurvey.gov"
+            ],
+            "peers": {
+                "peer0.org1.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "peer1.org1.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer2.org1.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer3.org1.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer0.org2.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "peer1.org2.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer2.org2.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                },
+                "peer3.org2.citysurvey.gov": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.org1.citysurvey.gov",
+                "peer1.org1.citysurvey.gov",
+                "peer2.org1.citysurvey.gov",
+                "peer3.org1.citysurvey.gov"
+            ],
+            "certificateAuthorities": [
+                "ca.org1.citysurvey.gov"
+            ]
+        },
+        "Org2": {
+            "mspid": "Org2MSP",
+            "peers": [
+                "peer0.org2.citysurvey.gov",
+                "peer1.org2.citysurvey.gov",
+                "peer2.org2.citysurvey.gov",
+                "peer3.org2.citysurvey.gov"
+            ],
+            "certificateAuthorities": [
+                "ca.org2.citysurvey.gov"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer0.citysurvey.gov": {
+            "url": "grpcs://192.168.10.70:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQDCCAeegAwIBAgIQLt8p47zDUNU+Dyyfo29+SjAKBggqhkjOPQQDAjByMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMOY2l0eXN1cnZleS5nb3YxHTAbBgNVBAMTFHRsc2Nh\nLmNpdHlzdXJ2ZXkuZ292MB4XDTE5MDMzMTA3MTcwMFoXDTI5MDMyODA3MTcwMFow\ncjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\nbiBGcmFuY2lzY28xFzAVBgNVBAoTDmNpdHlzdXJ2ZXkuZ292MR0wGwYDVQQDExR0\nbHNjYS5jaXR5c3VydmV5LmdvdjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIVz\nL9AJLcAqy73y38Aw2jHwJBy1AUdIjHVm5UXsSZfg3+Y16zv2DWgb4PsncdWc1tdM\ngJ9Jp+BGyQnwhWKkBSmjXzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRV\nHSUAMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIP5hpUdWRG8/JvFTB4SXVOU9\n03J35vwZLjlBQy3srkuEMAoGCCqGSM49BAMCA0cAMEQCIAt0slbBp+weBPFbU6xx\nPZWl/z8TVjmwerqDJs9XDhIwAiA0MKdY7Hv9nTaxA/Uz6KGi3FbUDiTyLSKi7Vhe\nXTbvHw==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "orderer1.citysurvey.gov": {
+            "url": "grpcs://192.168.10.110:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer1.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQDCCAeegAwIBAgIQLt8p47zDUNU+Dyyfo29+SjAKBggqhkjOPQQDAjByMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMOY2l0eXN1cnZleS5nb3YxHTAbBgNVBAMTFHRsc2Nh\nLmNpdHlzdXJ2ZXkuZ292MB4XDTE5MDMzMTA3MTcwMFoXDTI5MDMyODA3MTcwMFow\ncjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\nbiBGcmFuY2lzY28xFzAVBgNVBAoTDmNpdHlzdXJ2ZXkuZ292MR0wGwYDVQQDExR0\nbHNjYS5jaXR5c3VydmV5LmdvdjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIVz\nL9AJLcAqy73y38Aw2jHwJBy1AUdIjHVm5UXsSZfg3+Y16zv2DWgb4PsncdWc1tdM\ngJ9Jp+BGyQnwhWKkBSmjXzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRV\nHSUAMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIP5hpUdWRG8/JvFTB4SXVOU9\n03J35vwZLjlBQy3srkuEMAoGCCqGSM49BAMCA0cAMEQCIAt0slbBp+weBPFbU6xx\nPZWl/z8TVjmwerqDJs9XDhIwAiA0MKdY7Hv9nTaxA/Uz6KGi3FbUDiTyLSKi7Vhe\nXTbvHw==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "orderer2.citysurvey.gov": {
+            "url": "grpcs://192.168.10.111:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer2.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQDCCAeegAwIBAgIQLt8p47zDUNU+Dyyfo29+SjAKBggqhkjOPQQDAjByMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMOY2l0eXN1cnZleS5nb3YxHTAbBgNVBAMTFHRsc2Nh\nLmNpdHlzdXJ2ZXkuZ292MB4XDTE5MDMzMTA3MTcwMFoXDTI5MDMyODA3MTcwMFow\ncjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\nbiBGcmFuY2lzY28xFzAVBgNVBAoTDmNpdHlzdXJ2ZXkuZ292MR0wGwYDVQQDExR0\nbHNjYS5jaXR5c3VydmV5LmdvdjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIVz\nL9AJLcAqy73y38Aw2jHwJBy1AUdIjHVm5UXsSZfg3+Y16zv2DWgb4PsncdWc1tdM\ngJ9Jp+BGyQnwhWKkBSmjXzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRV\nHSUAMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIP5hpUdWRG8/JvFTB4SXVOU9\n03J35vwZLjlBQy3srkuEMAoGCCqGSM49BAMCA0cAMEQCIAt0slbBp+weBPFbU6xx\nPZWl/z8TVjmwerqDJs9XDhIwAiA0MKdY7Hv9nTaxA/Uz6KGi3FbUDiTyLSKi7Vhe\nXTbvHw==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "orderer3.citysurvey.gov": {
+            "url": "grpcs://192.168.10.112:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer3.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQDCCAeegAwIBAgIQLt8p47zDUNU+Dyyfo29+SjAKBggqhkjOPQQDAjByMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMOY2l0eXN1cnZleS5nb3YxHTAbBgNVBAMTFHRsc2Nh\nLmNpdHlzdXJ2ZXkuZ292MB4XDTE5MDMzMTA3MTcwMFoXDTI5MDMyODA3MTcwMFow\ncjELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\nbiBGcmFuY2lzY28xFzAVBgNVBAoTDmNpdHlzdXJ2ZXkuZ292MR0wGwYDVQQDExR0\nbHNjYS5jaXR5c3VydmV5LmdvdjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIVz\nL9AJLcAqy73y38Aw2jHwJBy1AUdIjHVm5UXsSZfg3+Y16zv2DWgb4PsncdWc1tdM\ngJ9Jp+BGyQnwhWKkBSmjXzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRV\nHSUAMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIP5hpUdWRG8/JvFTB4SXVOU9\n03J35vwZLjlBQy3srkuEMAoGCCqGSM49BAMCA0cAMEQCIAt0slbBp+weBPFbU6xx\nPZWl/z8TVjmwerqDJs9XDhIwAiA0MKdY7Hv9nTaxA/Uz6KGi3FbUDiTyLSKi7Vhe\nXTbvHw==\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "peers": {
+        "peer0.org1.citysurvey.gov": {
+            "url": "grpcs://192.168.10.70:7051",
+            "eventUrl": "grpcs://192.168.10.70:7053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org1.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQeC8+KWZYp/ZqF4o48Q9CCDAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMS5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcxLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcxLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAELrfEKOazl7WSF9x5YU2T5HciMTxJ8ODmO8848RyW\nW80fHwE7smFtGErJjxunpFxbEwJ6wD065oevNUtUp2q8o6NfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgqP3Dp1432jIZ/Vb8hvWKPUNjB2xFg8nZdcnjOk4XPyUwCgYIKoZIzj0EAwID\nSAAwRQIhAObZDLBiArPk6ACM6eG1MCf32x+nrmHWe1tzV+iP84HZAiAGRC32IhEe\nAwC1/V5sHXQzO8EkkmpR2j6eCFyKyKZqzA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.org1.citysurvey.gov": {
+            "url": "grpcs://192.168.10.110:8051",
+            "eventUrl": "grpcs://192.168.10.110:8053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org1.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQeC8+KWZYp/ZqF4o48Q9CCDAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMS5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcxLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcxLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAELrfEKOazl7WSF9x5YU2T5HciMTxJ8ODmO8848RyW\nW80fHwE7smFtGErJjxunpFxbEwJ6wD065oevNUtUp2q8o6NfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgqP3Dp1432jIZ/Vb8hvWKPUNjB2xFg8nZdcnjOk4XPyUwCgYIKoZIzj0EAwID\nSAAwRQIhAObZDLBiArPk6ACM6eG1MCf32x+nrmHWe1tzV+iP84HZAiAGRC32IhEe\nAwC1/V5sHXQzO8EkkmpR2j6eCFyKyKZqzA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer2.org1.citysurvey.gov": {
+            "url": "grpcs://192.168.10.111:9051",
+            "eventUrl": "grpcs://192.168.10.111:9053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.org1.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQeC8+KWZYp/ZqF4o48Q9CCDAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMS5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcxLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcxLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAELrfEKOazl7WSF9x5YU2T5HciMTxJ8ODmO8848RyW\nW80fHwE7smFtGErJjxunpFxbEwJ6wD065oevNUtUp2q8o6NfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgqP3Dp1432jIZ/Vb8hvWKPUNjB2xFg8nZdcnjOk4XPyUwCgYIKoZIzj0EAwID\nSAAwRQIhAObZDLBiArPk6ACM6eG1MCf32x+nrmHWe1tzV+iP84HZAiAGRC32IhEe\nAwC1/V5sHXQzO8EkkmpR2j6eCFyKyKZqzA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer3.org1.citysurvey.gov": {
+            "url": "grpcs://192.168.10.112:10051",
+            "eventUrl": "grpcs://192.168.10.112:10053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer3.org1.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQeC8+KWZYp/ZqF4o48Q9CCDAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMS5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcxLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcxLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAELrfEKOazl7WSF9x5YU2T5HciMTxJ8ODmO8848RyW\nW80fHwE7smFtGErJjxunpFxbEwJ6wD065oevNUtUp2q8o6NfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgqP3Dp1432jIZ/Vb8hvWKPUNjB2xFg8nZdcnjOk4XPyUwCgYIKoZIzj0EAwID\nSAAwRQIhAObZDLBiArPk6ACM6eG1MCf32x+nrmHWe1tzV+iP84HZAiAGRC32IhEe\nAwC1/V5sHXQzO8EkkmpR2j6eCFyKyKZqzA==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer0.org2.citysurvey.gov": {
+            "url": "grpcs://192.168.10.70:11051",
+            "eventUrl": "grpcs://192.168.10.70:11053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org2.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQCcN3oA1ZHnxWBFLCJvbxSTAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMi5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMi5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcyLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcyLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEu/6j6ri9Ln7+EJuIvi7vjHoybhW7UB3tFiCvCABb\n3qVUhd2PyfrFEowrE9jrOHPN8/pNUFrA2Z4J3lyXFLm0nqNfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgjLdMxPv4EuaVcjRdfv4tr8IkqI5UJ9mhEtg5Sjp8KtowCgYIKoZIzj0EAwID\nSAAwRQIhAOlu/dF/pJiXbKl2QhC+hAa6s2w8ji3bnurpJhTamxcGAiBqCz7zJGgZ\n3KxOc+O65WM8YS4zQRmO2FCtAdughfWptQ==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer1.org2.citysurvey.gov": {
+            "url": "grpcs://192.168.10.110:12051",
+            "eventUrl": "grpcs://192.168.10.110:12053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org2.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQCcN3oA1ZHnxWBFLCJvbxSTAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMi5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMi5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcyLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcyLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEu/6j6ri9Ln7+EJuIvi7vjHoybhW7UB3tFiCvCABb\n3qVUhd2PyfrFEowrE9jrOHPN8/pNUFrA2Z4J3lyXFLm0nqNfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgjLdMxPv4EuaVcjRdfv4tr8IkqI5UJ9mhEtg5Sjp8KtowCgYIKoZIzj0EAwID\nSAAwRQIhAOlu/dF/pJiXbKl2QhC+hAa6s2w8ji3bnurpJhTamxcGAiBqCz7zJGgZ\n3KxOc+O65WM8YS4zQRmO2FCtAdughfWptQ==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer2.org2.citysurvey.gov": {
+            "url": "grpcs://192.168.10.111:13051",
+            "eventUrl": "grpcs://192.168.10.111:13053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.org2.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQCcN3oA1ZHnxWBFLCJvbxSTAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMi5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMi5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcyLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcyLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEu/6j6ri9Ln7+EJuIvi7vjHoybhW7UB3tFiCvCABb\n3qVUhd2PyfrFEowrE9jrOHPN8/pNUFrA2Z4J3lyXFLm0nqNfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgjLdMxPv4EuaVcjRdfv4tr8IkqI5UJ9mhEtg5Sjp8KtowCgYIKoZIzj0EAwID\nSAAwRQIhAOlu/dF/pJiXbKl2QhC+hAa6s2w8ji3bnurpJhTamxcGAiBqCz7zJGgZ\n3KxOc+O65WM8YS4zQRmO2FCtAdughfWptQ==\n-----END CERTIFICATE-----\n"
+            }
+        },
+        "peer3.org2.citysurvey.gov": {
+            "url": "grpcs://192.168.10.112:14051",
+            "eventUrl": "grpcs://192.168.10.112:14053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer3.org2.citysurvey.gov"
+            },
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICVTCCAfugAwIBAgIQCcN3oA1ZHnxWBFLCJvbxSTAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTb3JnMi5jaXR5c3VydmV5LmdvdjEiMCAGA1UEAxMZ\ndGxzY2Eub3JnMi5jaXR5c3VydmV5LmdvdjAeFw0xOTAzMzEwNzE3MDBaFw0yOTAz\nMjgwNzE3MDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExNvcmcyLmNpdHlzdXJ2ZXku\nZ292MSIwIAYDVQQDExl0bHNjYS5vcmcyLmNpdHlzdXJ2ZXkuZ292MFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEu/6j6ri9Ln7+EJuIvi7vjHoybhW7UB3tFiCvCABb\n3qVUhd2PyfrFEowrE9jrOHPN8/pNUFrA2Z4J3lyXFLm0nqNfMF0wDgYDVR0PAQH/\nBAQDAgGmMA8GA1UdJQQIMAYGBFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4E\nIgQgjLdMxPv4EuaVcjRdfv4tr8IkqI5UJ9mhEtg5Sjp8KtowCgYIKoZIzj0EAwID\nSAAwRQIhAOlu/dF/pJiXbKl2QhC+hAa6s2w8ji3bnurpJhTamxcGAiBqCz7zJGgZ\n3KxOc+O65WM8YS4zQRmO2FCtAdughfWptQ==\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org1.citysurvey.gov": {
+            "url": "https://192.168.10.70:7054",
+            "caName": "ca_org1.citysurvey.gov",
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.org2.citysurvey.gov": {
+            "url": "https://192.168.10.70:8054",
+            "caName": "ca_org2.citysurvey.gov",
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

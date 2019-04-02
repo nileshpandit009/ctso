@@ -32,14 +32,15 @@ services:
       - CORE_PEER_GOSSIP_ORGLEADER=false
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
       - CORE_PEER_PROFILE_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer0/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer0/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer0/tls/ca.crt
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
       - CORE_PEER_ID=peer0.org1.citysurvey.gov
       - CORE_PEER_ADDRESS=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -47,10 +48,16 @@ services:
 
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
+    ports:
+      - 7051:7051
+      - 7053:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer0.org1.citysurvey.gov/msp:/etc/hyperledger/peer0/msp
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer0.org1.citysurvey.gov/tls:/etc/hyperledger/peer0/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer0.org1.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer0.org1.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
 
   peer1_org1:
     deploy:
@@ -77,14 +84,15 @@ services:
       - CORE_PEER_GOSSIP_ORGLEADER=false
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
       - CORE_PEER_PROFILE_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer1/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer1/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer1/tls/ca.crt
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
       - CORE_PEER_ID=peer1.org1.citysurvey.gov
       - CORE_PEER_ADDRESS=peer1.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -92,10 +100,16 @@ services:
 
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
+    ports:
+      - 8051:7051
+      - 8053:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer1.org1.citysurvey.gov/msp:/etc/hyperledger/peer1/msp
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer1.org1.citysurvey.gov/tls:/etc/hyperledger/peer1/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer1.org1.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer1.org1.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
 
   peer2_org1:
     deploy:
@@ -122,14 +136,15 @@ services:
       - CORE_PEER_GOSSIP_ORGLEADER=false
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
       - CORE_PEER_PROFILE_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer2/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer2/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer2/tls/ca.crt
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
       - CORE_PEER_ID=peer2.org1.citysurvey.gov
       - CORE_PEER_ADDRESS=peer2.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -137,10 +152,16 @@ services:
 
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
+    ports:
+      - 9051:7051
+      - 9053:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer2.org1.citysurvey.gov/msp:/etc/hyperledger/peer2/msp
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer2.org1.citysurvey.gov/tls:/etc/hyperledger/peer2/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer2.org1.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer2.org1.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
 
   peer3_org1:
     deploy:
@@ -167,14 +188,15 @@ services:
       - CORE_PEER_GOSSIP_ORGLEADER=false
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
       - CORE_PEER_PROFILE_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer3/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer3/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer3/tls/ca.crt
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
       - CORE_PEER_ID=peer3.org1.citysurvey.gov
       - CORE_PEER_ADDRESS=peer3.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -182,7 +204,221 @@ services:
 
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
+    ports:
+      - 10051:7051
+      - 10053:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer3.org1.citysurvey.gov/msp:/etc/hyperledger/peer3/msp
-      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer3.org1.citysurvey.gov/tls:/etc/hyperledger/peer3/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer3.org1.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer3.org1.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org1.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
+
+  peer0_org2:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE1}
+    hostname: peer0.org2.citysurvey.gov
+    image: hyperledger/fabric-peer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - peer0.org2.citysurvey.gov
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
+      - CORE_PEER_ID=peer0.org2.citysurvey.gov
+      - CORE_PEER_ADDRESS=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      #
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
+
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 11051:7051
+      - 11053:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer0.org2.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer0.org2.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
+
+  peer1_org2:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE2}
+    hostname: peer1.org2.citysurvey.gov
+    image: hyperledger/fabric-peer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - peer1.org2.citysurvey.gov
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
+      - CORE_PEER_ID=peer1.org2.citysurvey.gov
+      - CORE_PEER_ADDRESS=peer1.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.citysurvey.gov:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      #
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
+
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 12051:7051
+      - 12053:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer1.org2.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer1.org2.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
+
+  peer2_org2:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE3}
+    hostname: peer2.org2.citysurvey.gov
+    image: hyperledger/fabric-peer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - peer2.org2.citysurvey.gov
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
+      - CORE_PEER_ID=peer2.org2.citysurvey.gov
+      - CORE_PEER_ADDRESS=peer2.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org2.citysurvey.gov:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      #
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb6:5984
+
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 13051:7051
+      - 13053:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer2.org2.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer2.org2.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx
+
+  peer3_org2:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.hostname == ${NODE4}
+    hostname: peer3.org2.citysurvey.gov
+    image: hyperledger/fabric-peer:${IMAGETAG}
+    networks:
+      ctso:
+        aliases:
+          - peer3.org2.citysurvey.gov
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/peer/tls/ca.crt
+      - CORE_PEER_ID=peer3.org2.citysurvey.gov
+      - CORE_PEER_ADDRESS=peer3.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org2.citysurvey.gov:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      #
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb7:5984
+
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 14051:7051
+      - 14053:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer3.org2.citysurvey.gov/msp:/etc/hyperledger/peer/msp
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer3.org2.citysurvey.gov/tls:/etc/hyperledger/peer/tls
+      - ./crypto-config/peerOrganizations/org2.citysurvey.gov/users/:/etc/hyperledger/peer/users
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/:/etc/hyperledger/orderers
+      - ./config:/etc/hyperledger/configtx

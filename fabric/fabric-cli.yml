@@ -18,6 +18,7 @@ services:
         constraints:
           - node.hostname == ${NODE1}
     image: hyperledger/fabric-tools:${IMAGETAG}
+    tty: true
     networks:
       ctso:
         aliases:

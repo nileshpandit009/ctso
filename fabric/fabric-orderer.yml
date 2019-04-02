@@ -45,6 +45,8 @@ services:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/msp:/etc/hyperledger/orderer0/msp
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/tls:/etc/hyperledger/orderer0/tls
+    ports:
+      - 7050:7050
 
   orderer1:
     deploy:
@@ -85,6 +87,8 @@ services:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/msp:/etc/hyperledger/orderer1/msp
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/tls:/etc/hyperledger/orderer1/tls
+    ports:
+      - 8050:7050
 
   orderer2:
     deploy:
@@ -125,6 +129,8 @@ services:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/msp:/etc/hyperledger/orderer2/msp
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/tls:/etc/hyperledger/orderer2/tls
+    ports:
+      - 9050:7050
 
   orderer3:
     deploy:
@@ -165,5 +171,7 @@ services:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/msp:/etc/hyperledger/orderer3/msp
       - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/tls:/etc/hyperledger/orderer3/tls
+    ports:
+      - 10050:7050
 
     
