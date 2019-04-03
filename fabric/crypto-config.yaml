@@ -32,7 +32,7 @@ PeerOrgs:
     Template:
       Count: 4
     Users:
-      Count: 1
+      Count: 0
 
   # --------------------------------------------------------------------------
   # Org2
@@ -42,4 +42,4 @@ PeerOrgs:
     Template:
       Count: 4
     Users:
-      Count: 1
+      Count: 0

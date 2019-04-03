@@ -47,3 +47,4 @@ composer identity request -c PeerAdminOrg2@ctso -u admin -s adminpw -d adminorg2
 
 composer network start -c PeerAdminOrg1@ctso --networkName city-survey --networkVersion 0.0.1 -o endorsement-policy.json -A adminorg1 -C adminorg1/admin-pub.pem -A adminorg2 -C adminorg2/admin-pub.pem 
 
+

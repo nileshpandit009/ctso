@@ -27,11 +27,11 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca_org1.citysurvey.gov
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.citysurvey.gov-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/ad07f5125260c8131d016a2881d414520af77cb7bde5d931918cc1c45c3cce8a_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/b4f9d1fc4a172b0dc6cdeae826ca89dad85aa9607d6b4dbfe90d0d9c3bf9b22f_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.citysurvey.gov-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/ad07f5125260c8131d016a2881d414520af77cb7bde5d931918cc1c45c3cce8a_sk
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.citysurvey.gov-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/ad07f5125260c8131d016a2881d414520af77cb7bde5d931918cc1c45c3cce8a_sk -b admin:adminpw -d'
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/b4f9d1fc4a172b0dc6cdeae826ca89dad85aa9607d6b4dbfe90d0d9c3bf9b22f_sk
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.citysurvey.gov-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/b4f9d1fc4a172b0dc6cdeae826ca89dad85aa9607d6b4dbfe90d0d9c3bf9b22f_sk -b admin:adminpw -d'
     ports:
       - 7054:7054
     volumes:
@@ -57,11 +57,11 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca_org2.citysurvey.gov
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.citysurvey.gov-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5fb8482a258dd3d8eea9e0ca0c73f4d1298d57fd251d072d50523f139e0e0a13_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/92089e7491a83da098bcdfb20c55c503845f1988376db8f757449af30d7a6f16_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.citysurvey.gov-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5fb8482a258dd3d8eea9e0ca0c73f4d1298d57fd251d072d50523f139e0e0a13_sk
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.citysurvey.gov-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/5fb8482a258dd3d8eea9e0ca0c73f4d1298d57fd251d072d50523f139e0e0a13_sk -b admin:adminpw -d'
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/92089e7491a83da098bcdfb20c55c503845f1988376db8f757449af30d7a6f16_sk
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.citysurvey.gov-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/92089e7491a83da098bcdfb20c55c503845f1988376db8f757449af30d7a6f16_sk -b admin:adminpw -d'
     ports:
       - 8054:7054
     volumes:

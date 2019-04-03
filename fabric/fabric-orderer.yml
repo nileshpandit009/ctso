@@ -28,12 +28,12 @@ services:
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer0/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer/msp
       # Enable TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer0/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer0/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer0/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer/tls/ca.crt]
       # Common parameters
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
@@ -43,8 +43,8 @@ services:
     command: orderer
     volumes:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/msp:/etc/hyperledger/orderer0/msp
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/tls:/etc/hyperledger/orderer0/tls
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/msp:/etc/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer0.citysurvey.gov/tls:/etc/hyperledger/orderer/tls
     ports:
       - 7050:7050
 
@@ -70,12 +70,12 @@ services:
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer1/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer/msp
       # Enable TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer1/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer1/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer1/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer/tls/ca.crt]
       # Common parameters
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
@@ -85,8 +85,8 @@ services:
     command: orderer
     volumes:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/msp:/etc/hyperledger/orderer1/msp
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/tls:/etc/hyperledger/orderer1/tls
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/msp:/etc/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer1.citysurvey.gov/tls:/etc/hyperledger/orderer/tls
     ports:
       - 8050:7050
 
@@ -112,12 +112,12 @@ services:
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer2/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer/msp
       # Enable TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer2/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer2/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer2/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer/tls/ca.crt]
       # Common parameters
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
@@ -127,8 +127,8 @@ services:
     command: orderer
     volumes:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/msp:/etc/hyperledger/orderer2/msp
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/tls:/etc/hyperledger/orderer2/tls
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/msp:/etc/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer2.citysurvey.gov/tls:/etc/hyperledger/orderer/tls
     ports:
       - 9050:7050
 
@@ -154,12 +154,12 @@ services:
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
-      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer3/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer/msp
       # Enable TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer3/tls/server.key
-      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer3/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer3/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/orderer/tls/ca.crt]
       # Common parameters
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
@@ -169,9 +169,7 @@ services:
     command: orderer
     volumes:
       - ./config/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/msp:/etc/hyperledger/orderer3/msp
-      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/tls:/etc/hyperledger/orderer3/tls
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/msp:/etc/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/citysurvey.gov/orderers/orderer3.citysurvey.gov/tls:/etc/hyperledger/orderer/tls
     ports:
       - 10050:7050
-
-    

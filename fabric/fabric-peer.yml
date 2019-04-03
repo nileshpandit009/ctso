@@ -40,7 +40,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org1.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -92,7 +92,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org1.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -144,7 +144,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org1.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -196,7 +196,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org1.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org1.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -248,7 +248,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -300,7 +300,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -352,7 +352,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org2.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -404,7 +404,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.citysurvey.gov:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org2.citysurvey.gov:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp
       #
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ctso
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB

@@ -107,7 +107,7 @@
             }
         },
         "orderer1.citysurvey.gov": {
-            "url": "grpcs://IP_NODE2:7050",
+            "url": "grpcs://IP_NODE2:8050",
             "grpcOptions": {
                 "ssl-target-name-override": "orderer1.citysurvey.gov"
             },
@@ -116,7 +116,7 @@
             }
         },
         "orderer2.citysurvey.gov": {
-            "url": "grpcs://IP_NODE3:7050",
+            "url": "grpcs://IP_NODE3:9050",
             "grpcOptions": {
                 "ssl-target-name-override": "orderer2.citysurvey.gov"
             },
@@ -125,7 +125,7 @@
             }
         },
         "orderer3.citysurvey.gov": {
-            "url": "grpcs://IP_NODE4:7050",
+            "url": "grpcs://IP_NODE4:10050",
             "grpcOptions": {
                 "ssl-target-name-override": "orderer3.citysurvey.gov"
             },

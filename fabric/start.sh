@@ -3,6 +3,7 @@
 function replacePrivateKey() {
     OPTS="-i"
 
+    rm -f fabric-ca-run.yml
     # Copy the template to the file that will be modified to add the private key
     cp fabric-ca.yml fabric-ca-run.yml
 
@@ -100,6 +101,12 @@ function printHelp() {
 	echo '		-t <timeout>		: Specify CLI timeout duration in seconds'
 	echo '		-d <delay>		: Specify delay duration in seconds'
 }
+
+
+# Source the .env file
+set -a
+source .env
+set +a
 
 
 # Default values for variables

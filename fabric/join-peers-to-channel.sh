@@ -23,10 +23,10 @@ function createChannel() {
 	############### Create Channel ################
 	###############################################
 	set -x
-	docker exec ${CLI} peer channel create -o orderer0.citysurvey.gov:7050 -c ctsochan -f /opt/gopath/src/github.com/hyperledger/fabric/peer/config/channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/citysurvey.gov/users/Admin@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem 
+	docker exec ${CLI} peer channel create -o orderer0.citysurvey.gov:7050 -c ctsochan -f /opt/gopath/src/github.com/hyperledger/fabric/peer/config/channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/citysurvey.gov/users/Admin@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem --timeout 15s
 	set +x
 	if [ "$?" -ne 0 ]; then
-		echo "ERROR: Create channel ${PEER_ORG1}"
+		echo "ERROR: Create channel ${CLI}"
 		exit 1
 	fi
 }
