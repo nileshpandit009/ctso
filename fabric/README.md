@@ -1,4 +1,4 @@
-## Basic Network Config
+## HOWTO get started? Like so...
 
 Steps:
 
