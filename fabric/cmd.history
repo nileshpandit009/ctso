@@ -1,15 +1,3 @@
-#########################################
-
-> current_names && docker ps --format="{{.Names}}" | grep -i peer > current_names
-
-docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin\@org2.citysurvey.gov/msp" ctso_peer0_org2.1.so8h0v361qslovzic3oc78m2e peer channel fetch config -o orderer0.citysurvey.gov:7050 -c ctsochan --tls --cafile /etc/hyperledger/orderers/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem 
-
-docker exec -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp" ctso_peer0_org2.1.so8h0v361qslovzic3oc78m2e peer channel join -b ctsochan_config.block --tls --cafile /etc/hyperledger/orderers/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem
-
-
-CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/users/Admin@org2.citysurvey.gov/msp peer channel update -o orderer0.citysurvey.gov:7050 -c ctsochan -f /etc/hyperledger/configtx/${CORE_PEER_LOCALMSPID}anchors.tx --tls true --cafile /etc/hyperledger/orderers/users/Admin@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem
-
-
 ####################################################################
 ######################## Docker Commands ###########################
 
@@ -40,5 +28,5 @@ composer card create -p connection-profile-org2.json -u adminorg2 -n city-survey
 composer card import -f adminorg1@city-survey.card
 composer card import -f adminorg2@city-survey.card
 
-# error at : # composer network ping -c adminorg1@city-survey
-# error at : # composer network ping -c adminorg2@city-survey
+composer network ping -c adminorg1@city-survey
+composer network ping -c adminorg2@city-survey
