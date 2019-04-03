@@ -83,6 +83,9 @@ function installAndStartNetwork() {
 	composer card import -f adminorg1@city-survey.card
 	composer card import -f adminorg2@city-survey.card
 
+	echo 'Again Sleeping for 15 seconds'
+	sleep 15s
+
 	composer network ping -c adminorg1@city-survey
 	set +x
 	if [ "$?" -ne 0 ]; then
