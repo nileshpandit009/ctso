@@ -96,6 +96,7 @@ function installAndStartNetwork() {
 	fi
 }
 
+echo '@@@@@@@@@ Staring script composer commands @@@@@@@@@'
 
 echo '@@@@@@@@@ Removing old business network cards @@@@@@@@@'
 deleteBusinessCards
