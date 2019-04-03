@@ -9,7 +9,7 @@ Steps:
 4.	Generate configuration transactions (configtx) and crypto material using ``start.sh generate.sh``.
 5.	<b>Don't forget to copy the configtx and crypto material on other hosts.</b>
 6.	Start the fabric using ``start.sh up`` (You can monitor the stack using ``docker stack ps ctso``).
-7.	Delete any previous composer cards and delete .composer by ``rm -rf ~/.composer/``.
+7.	Delete any previous composer cards and delete .composer directory by ``rm -rf ~/.composer/``.
 8.	Goto the ``composer`` directory and run ``replaceVariables.sh`` and ``./createPeerAdminCard.sh``.
 9.	Install business network on fabric using ``composer network install`` command.
 10.	Request new identities using ``composer identity request`` command.
