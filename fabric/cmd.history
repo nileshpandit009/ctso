@@ -30,3 +30,9 @@ composer card import -f adminorg2@city-survey.card
 
 composer network ping -c adminorg1@city-survey
 composer network ping -c adminorg2@city-survey
+
+#########################################################################
+######################### composer-rest-server ##########################
+
+composer-rest-server -c adminorg1@city-survey -n always -u true -w true -t true -e /home/nilesh/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/cert.pem -k /home/nilesh/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/key.pem
+
