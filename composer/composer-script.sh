@@ -5,6 +5,8 @@ COMPOSER_DIR=${PROJECT_DIR}/composer
 
 function deleteBusinessCards() {
 	rm -rf ~/.composer/
+	rm -rf ${COMPOSER_DIR}/adminorg{1,2}
+	rm -rf ${COMPOSER_DIR}/*.card
 }
 
 function createPeerAdminCards() {
@@ -102,5 +104,7 @@ echo '@@@@@@@@@ Removing old business network cards @@@@@@@@@'
 deleteBusinessCards
 echo '@@@@@@@@@ Running wrapper script for replaceVariables.sh and createPeerAdminCard.sh @@@@@@@@@'
 createPeerAdminCards
+echo 'Sleeping for 15 seconds'
+sleep 15s
 echo '@@@@@@@@@ Generating Identities and starting network @@@@@@@@@'
 installAndStartNetwork
