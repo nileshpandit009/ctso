@@ -1,16 +1,3 @@
-
-peer channel create -o orderer0.citysurvey.gov:7050 -c ctsochan -f config/channel.tx --tls true --cafile crypto/ordererOrganizations/citysurvey.gov/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem 
-
-
-peer channel create -o orderer0.citysurvey.gov:7050 -c ctsochan -f ./config/channel.tx --tls true --cafile ${PWD}/crypto/ordererOrganizations/citysurvey.gov/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem 
-
-
-peer channel fetch config -o orderer0.citysurvey.gov:7050 -c ctsochan --tls true --cafile ${PWD}/crypto/ordererOrganizations/citysurvey.gov/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem
-
-
-peer channel join -b ctsochan.block --tls true --cafile ${PWD}/crypto/ordererOrganizations/citysurvey.gov/users/Admin\@citysurvey.gov/msp/tlscacerts/tlsca.citysurvey.gov-cert.pem
-
-
 #########################################
 
 > current_names && docker ps --format="{{.Names}}" | grep -i peer > current_names
@@ -47,4 +34,11 @@ composer identity request -c PeerAdminOrg2@ctso -u admin -s adminpw -d adminorg2
 
 composer network start -c PeerAdminOrg1@ctso --networkName city-survey --networkVersion 0.0.1 -o endorsement-policy.json -A adminorg1 -C adminorg1/admin-pub.pem -A adminorg2 -C adminorg2/admin-pub.pem 
 
+composer card create -p connection-profile-org1.json -u adminorg1 -n city-survey -c adminorg1/admin-pub.pem -k adminorg1/admin-priv.pem
+composer card create -p connection-profile-org2.json -u adminorg2 -n city-survey -c adminorg2/admin-pub.pem -k adminorg2/admin-priv.pem
 
+composer card import -f adminorg1@city-survey.card
+composer card import -f adminorg2@city-survey.card
+
+# error at : # composer network ping -c adminorg1@city-survey
+# error at : # composer network ping -c adminorg2@city-survey
