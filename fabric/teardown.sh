@@ -15,6 +15,7 @@ rm -f ~/.hfc-key-store/*
 set -x
 docker rm $(docker ps -aq)
 docker rmi $(docker images dev-* -q)
+docker volume prune -f
 set +x
 
 # Your system is now clean
