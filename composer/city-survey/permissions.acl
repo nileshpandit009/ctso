@@ -17,25 +17,33 @@
  */
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "gov.citysurvey.SampleParticipant"
+    participant: "gov.citysurvey.Person"
     operation: READ
     resource: "gov.citysurvey.*"
     action: ALLOW
 }
 
-rule EverybodyCanSubmitTransactions {
-    description: "Allow all participants to submit transactions"
-    participant: "gov.citysurvey.SampleParticipant"
+rule StaffCanSubmitTransactions {
+    description: "Allow Staff to Submit Transactions"
+    participant: "gov.citysurvey.Staff"
     operation: CREATE
-    resource: "gov.citysurvey.SampleTransaction"
+    resource: "gov.citysurvey.PropertyTransfer"
+    action: ALLOW
+}
+
+rule StaffCanCreateAssets {
+    description: "Allow Staff to Create Assets"
+    participant: "gov.citysurvey.Staff"
+    operation: CREATE
+    resource: "gov.citysurvey.Property"
     action: ALLOW
 }
 
 rule OwnerHasFullAccessToTheirAssets {
     description: "Allow all participants full access to their assets"
-    participant(p): "gov.citysurvey.SampleParticipant"
+    participant(p): "gov.citysurvey.Person"
     operation: ALL
-    resource(r): "gov.citysurvey.SampleAsset"
+    resource(r): "gov.citysurvey.Property"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }

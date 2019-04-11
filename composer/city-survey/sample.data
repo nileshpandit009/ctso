@@ -1,0 +1,126 @@
+{
+  "$class": "gov.citysurvey.Property",
+  "surveyNum": "111",
+  "propertyPlots": [
+    {
+      "$class": "gov.citysurvey.PropertyPlot",
+      "plotNum": "10",
+      "plotOwners": [
+        {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#1"
+        },
+        {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#2"
+        }
+      ]
+    }
+  ],
+  "propertyOwners": [
+    {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#1"
+        },
+        {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#2"
+        }
+  ],
+  "totalPropertyArea": 20,
+  "propertyType": "RESIDENTIAL"
+}
+############################################################
+{
+  "$class": "gov.citysurvey.Property",
+  "surveyNum": "111",
+  "propertyPlots": ["gov.citysurvey.PropertyPlot#10"],
+  "propertyOwners": ["gov.citysurvey.Person#1", "gov.citysurvey.Person#2"],
+  "propertyArea": 20,
+  "propertyType": "RESIDENTIAL"
+}
+############################################################
+{
+  "$class": "gov.citysurvey.PropertyPlot",
+  "plotNum": "10",
+  "surveyNum": "111",
+  "plotOwners": [
+    "resource:gov.citysurvey.Person#1",
+    "resource:gov.citysurvey.Person#2"
+  ],
+  "plotArea": 20
+}
+##################################################################
+{
+  "$class": "gov.citysurvey.PropertyDivision",
+  "property": "resource:gov.citysurvey.Property#111",
+  "stakeholders": [
+    {
+      "$class": "gov.citysurvey.StakeHolder",
+      "stakeholder": "resource:gov.citysurvey.Person#1",
+      "shareArea": 15.0
+    },
+    {
+      "$class": "gov.citysurvey.StakeHolder",
+      "stakeholder": "resource:gov.citysurvey.Person#2",
+      "shareArea": 5.0
+    }
+  ]
+}
+##################################################################3
+{
+  "$class": "gov.citysurvey.PropertyDivision",
+  "property": "resource:gov.citysurvey.Property#111",
+  "stakeholders": [
+    {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#1",
+      		"shareArea": "5"
+        },
+        {
+          "$class": "gov.citysurvey.StakeHolder",
+          "stakeholder": "resource:gov.citysurvey.Person#2",
+          "shareArea": "15"
+        }
+  ]
+}
+
+
+#####################################################################
+
+{
+  "$class": "gov.citysurvey.PropertyTransfer",
+  "sellers": ["gov.citysurvey.Person#1", "gov.citysurvey.Person#2"],
+  "buyers": ["gov.citysurvey.Person#3", "gov.citysurvey.Person#4"],
+  "property": "resource:gov.citysurvey.Property#111",
+  "area": 10,
+  "newSurveyNum": "112",
+  "newPropertyType": "COMMERCIAL",
+  "mortgage": {
+    "$class": "gov.citysurvey.Mortgage",
+    "isMortgaged": false
+  },
+  "lease": {
+    "$class": "gov.citysurvey.Lease",
+    "isLeased": false
+  }
+}
+
+
+
+{
+  "$class": "gov.citysurvey.PropertyMortgage",
+  "lenders": ["gov.citysurvey.Person#1", "gov.citysurvey.Person#2"],
+  "borrowers": ["gov.citysurvey.Person#3", "gov.citysurvey.Person#4"],
+  "property": "resource:gov.citysurvey.Property#112",
+  "mortgage": {
+    "$class": "gov.citysurvey.Mortgage",
+    "isMortgaged": true,
+    "mortgageId": "m112",
+    "mortgagePeriod": 30,
+    "principal": 4000,
+    "interestRate": 6.8
+  }
+}
+
+

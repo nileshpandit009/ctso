@@ -18,25 +18,79 @@
 
 namespace gov.citysurvey
 
-participant SampleParticipant identified by participantId {
-  o String participantId
+enum PropertyType {
+  o RESIDENTIAL
+  o COMMERCIAL
+  o INDUSTRIAL
+}
+
+concept Name {
   o String firstName
+  o String middleName
   o String lastName
 }
 
-asset SampleAsset identified by assetId {
-  o String assetId
-  --> SampleParticipant owner
-  o String value
+concept Mortgage {
+  o Boolean isMortgaged default = false
+  o String mortgageId optional
+  o Integer mortgagePeriod optional
+  o Double principal optional
+  o Double interestRate optional
 }
 
-transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
+concept Lease {
+  o Boolean isLeased default = false
+  o String leaseId optional
+  o Double rent optional
+  o Integer leasePeriod optional
 }
 
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
-  o String newValue
+participant Person identified by aadharNum {
+  o String aadharNum
+  o Name name
+}
+
+participant Staff identified by staffId {
+  o String staffId
+  o Name name
+}
+
+asset Property identified by surveyNum {
+  o String surveyNum
+  --> Person[] propertyOwners
+  o Double propertyArea
+  o PropertyType propertyType
+  o Mortgage mortgage optional
+  o Lease lease optional
+}
+
+transaction PropertyTransfer {
+  --> Person[] sellers
+  --> Person[] buyers
+  --> Property property
+  o Double area
+  o String newSurveyNum optional
+  o String newPropertyType optional
+  o Mortgage mortgage optional
+  o Lease lease optional
+}
+
+transaction PropertyMortgage {
+  --> Person[] lenders
+  --> Person[] borrowers
+  --> Property property
+  o Mortgage mortgage
+}
+
+transaction PropertyLease {
+  --> Person[] leaser         // The owner of property
+  --> Person[] lessee         // The user of property
+  o Lease lease
+}
+
+event TransferEvent {
+  --> Property property
+  --> Person[] sellers
+  --> Person[] buyers
+  o Double area
 }
