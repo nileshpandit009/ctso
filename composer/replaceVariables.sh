@@ -1,7 +1,5 @@
 #/bin/bash
 
-PROJECT_DIR=/ctso
-
 function replacePrivateKey() {
     OPTS="-i"
 
@@ -15,10 +13,10 @@ function replacePrivateKey() {
     ORG1_NAME=Org1
     ORG2_NAME=Org2
 
-    IP_NODE1=192.168.10.70
-    IP_NODE2=192.168.10.110
-    IP_NODE3=192.168.10.111
-    IP_NODE4=192.168.10.112
+    IP_NODE1=192.168.43.200
+    IP_NODE2=192.168.43.210
+    IP_NODE3=192.168.43.220
+    IP_NODE4=192.168.43.230
 
     PEER_ORG1_CA=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' $PROJECT_DIR/fabric/crypto-config/peerOrganizations/org1.citysurvey.gov/peers/peer0.org1.citysurvey.gov/tls/ca.crt)
     PEER_ORG2_CA=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' $PROJECT_DIR/fabric/crypto-config/peerOrganizations/org2.citysurvey.gov/peers/peer0.org2.citysurvey.gov/tls/ca.crt)
@@ -41,6 +39,12 @@ function replacePrivateKey() {
 #     sed $OPTS "s%PEER_ORG2_CA%$PEER_ORG2_CA%g" connection-profile-org{1,2}.json
 #     sed $OPTS "s%ORDERER_CA%$ORDERER_CA%g" connection-profile-org{1,2}.json
 }
+
+set -a
+source .env
+set +a
+
+PROJECT_DIR=/ctso
 
 rm -f connection-profile-org{1,2}.json
 replacePrivateKey

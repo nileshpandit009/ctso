@@ -47,6 +47,10 @@ Parse_Arguments() {
 	done
 }
 
+set -a
+source .env
+set +a
+
 HOST=localhost
 # Set project directory
 PROJECT_DIR=/ctso

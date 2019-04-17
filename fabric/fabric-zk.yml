@@ -34,7 +34,7 @@ services:
         max_attempts: 3
       placement:
         constraints:
-          - node.hostname == ${NODE2}
+          - node.hostname == ${NODE3}
     hostname: zookeeper1.citysurvey.gov
     image: hyperledger/fabric-zookeeper:${TP_IMAGETAG}
     networks:
@@ -53,7 +53,7 @@ services:
         max_attempts: 3
       placement:
         constraints:
-          - node.hostname == ${NODE3}
+          - node.hostname == ${NODE4}
     hostname: zookeeper2.citysurvey.gov
     image: hyperledger/fabric-zookeeper:${TP_IMAGETAG}
     networks:

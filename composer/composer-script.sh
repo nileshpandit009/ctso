@@ -1,8 +1,5 @@
 #!/bin/bash
 
-PROJECT_DIR=/ctso
-COMPOSER_DIR=${PROJECT_DIR}/composer
-
 function deleteBusinessCards() {
 	rm -rf ~/.composer/
 	rm -rf ${COMPOSER_DIR}/adminorg{1,2}
@@ -100,6 +97,13 @@ function installAndStartNetwork() {
 		exit 1
 	fi
 }
+
+set -a
+source .env
+set +a
+
+PROJECT_DIR=/ctso
+COMPOSER_DIR=${PROJECT_DIR}/composer
 
 echo '@@@@@@@@@ Staring script composer commands @@@@@@@@@'
 

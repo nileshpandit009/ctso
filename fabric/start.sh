@@ -72,11 +72,17 @@ function deployServices() {
 	else
 		set -x
 		docker stack deploy -c fabric-zk.yml $SWARM_NETWORK
+		sleep 30s
     	docker stack deploy -c fabric-kafka.yml $SWARM_NETWORK
+    	sleep 5s
 	    docker stack deploy -c fabric-orderer.yml $SWARM_NETWORK
+	    sleep 5s
 	    docker stack deploy -c fabric-couchdb.yml $SWARM_NETWORK
+	    sleep 5s
     	docker stack deploy -c fabric-peer.yml $SWARM_NETWORK
+    	sleep 5s
 	    docker stack deploy -c fabric-ca-run.yml $SWARM_NETWORK
+	    sleep 5s
 	   	docker stack deploy -c fabric-cli.yml $SWARM_NETWORK
 	   	set +x
 	fi

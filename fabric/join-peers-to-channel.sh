@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -a
+source .env
+set +a
+
 CLI=$(docker ps --format="{{.Names}}" | grep -i cli)
 echo $CLI
 
