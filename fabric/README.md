@@ -20,7 +20,7 @@ Steps:
 15.	Import the newly created cards using ``composer card import`` command.
 16.	Ping the network using ``composer network ping`` command.
 17.	Create RESTful API using the following command
-	``composer-rest-server -c adminorg1@city-survey -n always -u true -w true -t true -e /home/nilesh/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/cert.pem -k /home/nilesh/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/key.pem``
+	``composer-rest-server -c adminorg1@city-survey -n always -u true -w true -t true -e $HOME/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/cert.pem -k $HOME/.nvm/versions/node/v8.15.0/lib/node_modules/composer-rest-server/key.pem``
 
 PS:	Refer ``cmd.history`` file for usage of above mentioned commands.
 	<b>DEPRICATED:
