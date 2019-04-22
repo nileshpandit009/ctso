@@ -6,7 +6,7 @@ Steps:
 1.	Source the .env file by ``source .env``.
 2.	Initialize swarm by ``docker swarm init`` and join other nodes by following instructions on terminal.
 3.	Create an overlay network by ``docker network create --attachable --driver overlay --subnet=10.200.1.0/24 ctso``.
-4.	Generate configuration transactions (configtx) and crypto material using ``start.sh generate.sh``.
+4.	Generate configuration transactions (configtx) and crypto material using ``start.sh generate``.
 5.	<b>Don't forget to copy the configtx and crypto material on other hosts.</b>
 6.	Start the fabric using ``start.sh up`` (You can monitor the stack using ``docker stack ps ctso``).
 7.	Create channel using ``join-peers-to-channel.sh create``.
